@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Voxel Ruins — Live Voxel Art</title>
+<style>
+  :root{
+    --bg:#14120e; --panel:#1c1913; --ink:#d8d2c2; --dim:#8f887a;
+    --line:#2c2820; --accent:#a9b57e; --gold:#b7a06b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif;
+    min-height:100vh;
+    background-image:
+      radial-gradient(1200px 500px at 50% -10%, #232017 0%, transparent 60%),
+      radial-gradient(900px 600px at 85% 110%, #1a1d14 0%, transparent 55%);
+  }
+  header{
+    text-align:center; padding:72px 20px 40px;
+  }
+  h1{
+    font-size:clamp(1.9rem,4.5vw,3rem); font-weight:normal; letter-spacing:.06em;
+    color:var(--ink);
+  }
+  h1 .mark{color:var(--accent)}
+  .sub{
+    max-width:560px; margin:16px auto 0; color:var(--dim);
+    font-style:italic; font-size:1.02rem; line-height:1.6;
+  }
+  .rule{
+    width:120px; height:1px; margin:28px auto 0;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .grid{
+    display:grid; gap:26px; max-width:1060px; margin:52px auto 0;
+    padding:0 24px; grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  }
+  .card{
+    display:block; text-decoration:none; color:inherit;
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    overflow:hidden;
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    border-color:#4a4433;
+    box-shadow:0 14px 40px rgba(0,0,0,.45);
+  }
+  .card .imgwrap{
+    position:relative; overflow:hidden; aspect-ratio:4/3; background:#0d0c09;
+  }
+  .card img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:saturate(.92);
+    transition:transform .5s ease, filter .5s ease;
+  }
+  .card:hover img{ transform:scale(1.035); filter:saturate(1.05); }
+  .card .live{
+    position:absolute; top:10px; left:10px;
+    font-family:ui-monospace,Menlo,monospace; font-size:.62rem; letter-spacing:.14em;
+    color:#0f0e0a; background:var(--accent);
+    padding:3px 8px; border-radius:3px; opacity:.92;
+  }
+  .card .body{ padding:18px 18px 20px; }
+  .card h2{ font-size:1.18rem; font-weight:normal; letter-spacing:.03em; }
+  .card p{ color:var(--dim); font-size:.9rem; line-height:1.55; margin-top:8px; }
+  .card .go{
+    margin-top:14px; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold); font-family:ui-monospace,Menlo,monospace;
+  }
+  footer{
+    text-align:center; color:#5d574b; font-size:.8rem; line-height:1.7;
+    padding:60px 20px 48px;
+  }
+  footer .tech{font-family:ui-monospace,Menlo,monospace; font-size:.72rem; letter-spacing:.08em;}
+  a{color:var(--gold)}
+</style>
+</head>
+<body>
+<header>
+  <h1>Voxel <span class="mark">Ruins</span></h1>
+  <p class="sub">Live voxel landscapes — broken places, alive again.
+  Each one is a single HTML file with no build step: trees sway, weather moves,
+  something is always walking past. Drag to orbit, scroll to zoom.</p>
+  <div class="rule"></div>
+</header>
+
+<main class="grid">
+  <a class="card" href="wanderer/">
+    <div class="imgwrap"><span class="live">LIVE</span><img src="wanderer/preview.png" alt="Wanderer Above the Sea of Fog, voxel"/></div>
+    <div class="body">
+      <h2>Wanderer Above the Sea of Fog</h2>
+      <p>Caspar David Friedrich's 1818 painting, rebuilt in voxels. Volcanic
+      knobs, a wall of fog, birds, and a figure standing where the world ends.</p>
+      <div class="go">Enter the fog →</div>
+    </div>
+  </a>
+
+  <a class="card" href="ruined-chapel/">
+    <div class="imgwrap"><span class="live">LIVE</span><img src="ruined-chapel/preview.png" alt="The Ruined Chapel, voxel"/></div>
+    <div class="body">
+      <h2>The Ruined Chapel</h2>
+      <p>An original scene. A chapel that outlived everything else — dead trees,
+      drifting mist, and light moving through a broken window.</p>
+      <div class="go">Enter the chapel →</div>
+    </div>
+  </a>
+
+  <a class="card" href="overgrown-city/">
+    <div class="imgwrap"><span class="live">LIVE</span><img src="overgrown-city/preview.png" alt="The Overgrown City, voxel"/></div>
+    <div class="body">
+      <h2>The Overgrown City</h2>
+      <p>A city after the bombs, decades later — the ruins reclaimed. A mossy
+      viaduct, a broken clock tower wearing a tree, and deer at the old pond.</p>
+      <div class="go">Enter the city →</div>
+    </div>
+  </a>
+
+  <a class="card" href="threejs-ruin-graveyard/">
+    <div class="imgwrap"><span class="live">LIVE</span><img src="threejs-ruin-graveyard/preview.png" alt="Gothic Abbey Ruin, Three.js"/></div>
+    <div class="body">
+      <h2>Gothic Abbey Ruin</h2>
+      <p>A moonlit abbey and graveyard — snow drifting past broken gothic
+      arches, stars overhead, trees swaying in the wind.</p>
+      <div class="go">Enter the abbey →</div>
+    </div>
+  </a>
+</main>
+
+<footer>
+  four scenes · one file each · no servers, no trackers, no build step<br/>
+  <span class="tech">three.js · open on any desktop or phone browser</span>
+</footer>
+</body>
+</html>
